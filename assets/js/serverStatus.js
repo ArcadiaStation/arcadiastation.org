@@ -66,7 +66,8 @@ function roundTime(roundStartTime) {
         return formattedTime;
     }
     else {
-        return 'Pre-round Lobby';
+        const noTimeString = 'Pre-round Lobby';
+        return noTimeString;
     }
   }
   
