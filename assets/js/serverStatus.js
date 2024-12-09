@@ -46,7 +46,7 @@ function validateServer(json) {
 
 function roundTime(roundStartTime) {
 
-    if (roundStartTime != null){
+    if (roundStartTime !== null && roundStartTime !== undefined){
         const roundStartDate = new Date(Date.parse(roundStartTime)); // Start time of the round
         const currentTime = new Date(); // Current time
         
