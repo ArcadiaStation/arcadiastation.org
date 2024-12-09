@@ -40,28 +40,34 @@ function validateServer(json) {
            json.hasOwnProperty('map' ) && 
            json.hasOwnProperty('round_id') && 
            json.hasOwnProperty('soft_max_players') && 
-           json.hasOwnProperty('preset') &&
-           json.hasOwnProperty('round_start_time');
+           json.hasOwnProperty('preset');
+           //json.hasOwnProperty('round_start_time');
 }
 
 function roundTime(roundStartTime) {
-    const roundStartDate = new Date(Date.parse(roundStartTime)); // Start time of the round
-    const currentTime = new Date(); // Current time
-    
-    const elapsedTime = currentTime - roundStartDate; // Elapsed time in milliseconds
-    
-    // Convert milliseconds to seconds
-    const elapsedSeconds = Math.floor(elapsedTime / 1000);
-    
-    // Calculate hours, minutes, and seconds
-    const hours = Math.floor(elapsedSeconds / 3600);
-    const minutes = Math.floor((elapsedSeconds % 3600) / 60);
-    const seconds = elapsedSeconds % 60;
-    
-    // Format as HH:mm:ss, ensuring 2 digits for minutes and seconds
-    const formattedTime = `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
-    
-    return formattedTime;
+
+    if (roundStartTime != null){
+        const roundStartDate = new Date(Date.parse(roundStartTime)); // Start time of the round
+        const currentTime = new Date(); // Current time
+        
+        const elapsedTime = currentTime - roundStartDate; // Elapsed time in milliseconds
+        
+        // Convert milliseconds to seconds
+        const elapsedSeconds = Math.floor(elapsedTime / 1000);
+        
+        // Calculate hours, minutes, and seconds
+        const hours = Math.floor(elapsedSeconds / 3600);
+        const minutes = Math.floor((elapsedSeconds % 3600) / 60);
+        const seconds = elapsedSeconds % 60;
+        
+        // Format as HH:mm:ss, ensuring 2 digits for minutes and seconds
+        const formattedTime = `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
+        
+        return formattedTime;
+    }
+    else {
+        return 'Pre-round Lobby';
+    }
   }
   
   // Helper function to pad single digit values with leading zero
