@@ -44,25 +44,8 @@ function validateServer(json) {
            json.hasOwnProperty('round_start_time');
 }
 
-function updateDisplay(json, serverId) {
-    var serverName = document.getElementById(nameElementId + `${serverId}`);
-    var serverDesc = document.getElementById(descElementId + `${serverId}`);
-
-    var roundStartTime = `${json.round_start_time}`;
-    var roundTime = roundTime(roundStartTime);
-
-    if (serverName && serverDesc) {
-        serverName.textContent =`${json.name}`;
-        serverDesc.textContent = `Players: ${json.players} / ${json.soft_max_players}` + '\n' + 
-                                 `Round Time: `+ roundTime + '\n' +
-                                 `Map: ${json.map}` + '\n' +
-                                 `Gamemode: ${json.preset}` + '\n' +
-                                 `Round: ${json.round_id}`;
-    }
-}
-
 function roundTime(roundStartTime) {
-    const roundStartDate = new Date(roundStartTime); // Start time of the round
+    const roundStartDate = new Date(Date.parse(roundStartTime)); // Start time of the round
     const currentTime = new Date(); // Current time
     
     const elapsedTime = currentTime - roundStartDate; // Elapsed time in milliseconds
@@ -85,4 +68,20 @@ function roundTime(roundStartTime) {
   function padZero(value) {
     return value < 10 ? '0' + value : value;
   }
-  
+
+function updateDisplay(json, serverId) {
+    var serverName = document.getElementById(nameElementId + `${serverId}`);
+    var serverDesc = document.getElementById(descElementId + `${serverId}`);
+
+    var roundStartTime = `${json.round_start_time}`;
+    var roundTime = roundTime(roundStartTime);
+
+    if (serverName && serverDesc) {
+        serverName.textContent =`${json.name}`;
+        serverDesc.textContent = `Players: ${json.players} / ${json.soft_max_players}` + '\n' + 
+                                 `Round Time: `+ roundTime + '\n' +
+                                 `Map: ${json.map}` + '\n' +
+                                 `Gamemode: ${json.preset}` + '\n' +
+                                 `Round: ${json.round_id}`;
+    }
+}
