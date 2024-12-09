@@ -71,7 +71,7 @@ function roundTime(roundStartTime) {
 
 function updateDisplay(json, serverId) {
     var serverName = document.getElementById(nameElementId + `${serverId}`);
-    var serverDesc = document.getElementById(descElementId + `${serverId}`).innerText;
+    var serverDesc = document.getElementById(descElementId + `${serverId}`);
 
     var roundStartTime = `${json.round_start_time}`;
     var currentRoundTime = roundTime(roundStartTime);
