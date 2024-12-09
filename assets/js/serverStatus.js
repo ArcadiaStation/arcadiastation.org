@@ -60,8 +60,15 @@ function roundTime(roundStartTime) {
     
     // Format as HH:mm:ss, ensuring 2 digits for minutes and seconds
     const formattedTime = `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
-    
-    return formattedTime;
+
+    if (formattedTime !== 'NaN:NaN:NaN'){
+        return formattedTime;
+
+    }
+    else{
+        return 'Pre-round Lobby';
+        
+    }
   }
   
   // Helper function to pad single digit values with leading zero
