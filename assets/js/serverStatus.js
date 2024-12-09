@@ -78,10 +78,10 @@ function updateDisplay(json, serverId) {
 
     if (serverName && serverDesc) {
         serverName.textContent =`${json.name}`;
-        serverDesc.textContent = `Players: ${json.players} / ${json.soft_max_players}` + '\n' + 
-                                 `Round Time: `+ currentRoundTime + '\n' +
-                                 `Map: ${json.map}` + '\n' +
-                                 `Gamemode: ${json.preset}` + '\n' +
+        serverDesc.textContent = `Players: ${json.players} / ${json.soft_max_players}` + '<br>' + 
+                                 `Round Time: `+ currentRoundTime + '<br>' +
+                                 `Map: ${json.map}` + '<br>' +
+                                 `Gamemode: ${json.preset}` + '<br>' +
                                  `Round: ${json.round_id}`;
     }
 }
