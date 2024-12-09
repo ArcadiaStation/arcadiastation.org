@@ -74,12 +74,12 @@ function updateDisplay(json, serverId) {
     var serverDesc = document.getElementById(descElementId + `${serverId}`);
 
     var roundStartTime = `${json.round_start_time}`;
-    var roundTime = roundTime(roundStartTime);
+    var currentRoundTime = roundTime(roundStartTime);
 
     if (serverName && serverDesc) {
         serverName.textContent =`${json.name}`;
         serverDesc.textContent = `Players: ${json.players} / ${json.soft_max_players}` + '\n' + 
-                                 `Round Time: `+ roundTime + '\n' +
+                                 `Round Time: `+ currentRoundTime + '\n' +
                                  `Map: ${json.map}` + '\n' +
                                  `Gamemode: ${json.preset}` + '\n' +
                                  `Round: ${json.round_id}`;
