@@ -71,17 +71,17 @@ function roundTime(roundStartTime) {
 
 function updateDisplay(json, serverId) {
     var serverName = document.getElementById(nameElementId + `${serverId}`);
-    var serverDesc = document.getElementById(descElementId + `${serverId}`);
+    var serverDesc = document.getElementById(descElementId + `${serverId}`).innerText;
 
     var roundStartTime = `${json.round_start_time}`;
     var currentRoundTime = roundTime(roundStartTime);
 
     if (serverName && serverDesc) {
         serverName.textContent =`${json.name}`;
-        serverDesc.textContent = `Players: ${json.players} / ${json.soft_max_players}` + '<br>' + 
-                                 `Round Time: `+ currentRoundTime + '<br>' +
-                                 `Map: ${json.map}` + '<br>' +
-                                 `Gamemode: ${json.preset}` + '<br>' +
+        serverDesc.textContent = `Players: ${json.players} / ${json.soft_max_players}` + '\n' + 
+                                 `Round Time: `+ currentRoundTime + '\n' +
+                                 `Map: ${json.map}` + '\n' +
+                                 `Gamemode: ${json.preset}` + '\n' +
                                  `Round: ${json.round_id}`;
     }
 }
